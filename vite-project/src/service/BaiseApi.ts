@@ -6,7 +6,7 @@
     export const getAll = async (name) => {
         try {
             // const response = await fetch(this.baseUrl);
-            const response = await fetch(`https://jsonplaceholder.typicode.com/${name}`);
+            const response = await fetch(`http://localhost:3000/${name}`);
 
             if (!response.ok) {
                 throw new Error("rong :", response.status);

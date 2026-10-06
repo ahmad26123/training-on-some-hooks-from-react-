@@ -18,7 +18,7 @@ const route = createBrowserRouter([
     path: "/todos",
     element: <Todos />
   }, {
-    path: "/mypost",
+    path: "/mypost/:userId",
     element: <MyPost />
   }, {
     path: "/posts",
