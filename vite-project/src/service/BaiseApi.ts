@@ -3,7 +3,7 @@
 //         this.baseUrl = url;
 //     }
     //=====================================================================
-    const getAll = async (name) => {
+    export const getAll = async (name) => {
         try {
             // const response = await fetch(this.baseUrl);
             const response = await fetch(`https://jsonplaceholder.typicode.com/${name}`);
@@ -20,7 +20,7 @@
         }
     };
     //=====================================================================
-    const post = async (name,data) => {
+export const post = async (name,data) => {
         try {
             const response = await fetch(`https://jsonplaceholder.typicode.com/${name}`, {
                 method: "post",
@@ -41,7 +41,7 @@
         }
     };
     //=====================================================================
-    const getById = async (name , id) => {
+export const getById = async (name , id) => {
         try {
             const response = await fetch(`https://jsonplaceholder.typicode.com/${name}/${id}`);
             if (!response.ok) {
@@ -53,7 +53,7 @@
         }
     }
     //=====================================================================
-    const update = async (name , id, data) => {
+export const update = async (name , id, data) => {
         try {
             const response = await fetch(`https://jsonplaceholder.typicode.com/${name}/${id}`, {
                 method: "PUT",
@@ -74,7 +74,7 @@
         }
     };
     //=====================================================================
-    const deleted = async (name , id) => {
+export const deleted = async (name , id) => {
         try {
             const response = await fetch(`https://jsonplaceholder.typicode.com/${name}/${id}`, { method: "DELETE" });
 
