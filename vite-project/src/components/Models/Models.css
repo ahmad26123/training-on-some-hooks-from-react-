@@ -1,0 +1,45 @@
+/* الخلفية المعتمة المغطية للشاشة كاملاً */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* خلفية سوداء شفافة */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    /* للتأكد من ظهوره فوق باقي عناصر الصفحة */
+}
+
+/* صندوق المحتوى الداخلي */
+.modal-content {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    min-width: 300px;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.close-btn {
+    background: transparent;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.modal-body {
+    padding-top: 15px;
+}
