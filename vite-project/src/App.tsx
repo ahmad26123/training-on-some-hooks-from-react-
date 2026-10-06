@@ -1,9 +1,10 @@
+import Users from "./pages/Users/Users"
 
 const App = () => {
   return (
-    <div>
-      
-    </div>
+    <>
+      <Users />
+    </>
   )
 }
 
