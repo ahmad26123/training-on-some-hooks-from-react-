@@ -1,37 +1,19 @@
-import { useContext } from "react"
-import Navbar from "../../components/Navbar/Navbar"
-import { UserPostsContext, UserPostsProvider } from "./UserPostsContext"
+import { useContext } from "react";
+// import { UserPostsContext } from "../Users/Users";
+import Navbar from "@/components/Navbar/Navbar";
+import { UserPostsContext } from "@/App";
+// import { UserPostsContext } from "./Users"; // استيراد Context من صفحة Users
 
-const PostsList = () => {
-    const { userId, posts, loading } = useContext(UserPostsContext)
-
-    if (loading) {
-        return <h2> loding ....    {userId}...</h2>
-    }
+const MyPost = () => {
+    const { id } = useContext(UserPostsContext);
+    console.log("User ID from context:", id); // تحقق من قيمة id في وحدة التحكم
 
     return (
         <div>
-            <h2> user post  : {userId}</h2>
-            <ol>
-                {posts.map((post) => (
-                    <li key={post.id} style={{ marginBottom: "15px" }}>
-                        <h3>{post.title}</h3>
-                        <p>{post.body}</p>
-                    </li>
-                ))}
-            </ol>
-        </div>
-    )
-}
-
-const MyPost = () => {
-    return (
-        <UserPostsProvider>
             <Navbar />
-            <h1>صفحة المنشورات</h1>
-            <PostsList />
-        </UserPostsProvider>
-    )
-}
+            <h2> {id}</h2>
+        </div>
+    );
+};
 
-export default MyPost
+export default MyPost;
