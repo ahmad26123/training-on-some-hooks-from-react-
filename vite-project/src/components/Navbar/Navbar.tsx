@@ -1,4 +1,5 @@
 // Navbar.jsx
+import { Link } from "react-router";
 import "./Navbar.css";
 
 export default function Navbar() {
@@ -10,16 +11,16 @@ export default function Navbar() {
 
       <ul className="nav-links">
         <li>
-          <a href="/mypost">my posts</a>
+          <Link to="/mypost">my posts</Link>
         </li>
         <li>
-          <a href="/posts">posts</a>
+          <Link to="/posts">posts</Link>
         </li>
         <li>
-          <a href="/todos">todos</a>
+          <Link to="/todos">todos</Link>
         </li>
         <li>
-          <a href="/albums">alboums</a>
+          <Link to="/albums">alboums</Link>
         </li>
         
       </ul>

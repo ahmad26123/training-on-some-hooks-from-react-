@@ -22,7 +22,7 @@
     //=====================================================================
 export const post = async (name,data) => {
         try {
-            const response = await fetch(`https://jsonplaceholder.typicode.com/${name}`, {
+            const response = await fetch(`http://localhost:3000/${name}`, {
                 method: "post",
                 headers: {
                     "Content-Type": "application/json",
@@ -43,7 +43,7 @@ export const post = async (name,data) => {
     //=====================================================================
 export const getById = async (name , id) => {
         try {
-            const response = await fetch(`https://jsonplaceholder.typicode.com/${name}/${id}`);
+            const response = await fetch(`http://localhost:3000/${name}/${id}`);
             if (!response.ok) {
                 throw new Error("rong :", response.status);
             }
@@ -55,7 +55,7 @@ export const getById = async (name , id) => {
     //=====================================================================
 export const update = async (name , id, data) => {
         try {
-            const response = await fetch(`https://jsonplaceholder.typicode.com/${name}/${id}`, {
+            const response = await fetch(`http://localhost:3000/${name}/${id}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",
@@ -76,7 +76,7 @@ export const update = async (name , id, data) => {
     //=====================================================================
 export const deleted = async (name , id) => {
         try {
-            const response = await fetch(`https://jsonplaceholder.typicode.com/${name}/${id}`, { method: "DELETE" });
+            const response = await fetch(`http://localhost:3000/${name}/${id}`, { method: "DELETE" });
 
             if (!response.ok) {
                 throw new Error("rong :", response.status);
