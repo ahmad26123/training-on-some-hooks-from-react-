@@ -8,6 +8,55 @@ interface Post {
   userId: number | string;
   title: string;
   body: string;
+import { useEffect, useState } from "react"
+import Navbar from "../../components/Navbar/Navbar"
+import { getAll } from "../../service/BaiseApi";
+import { Link } from "react-router";
+// import { }
+// import { getAll } from "../../service/BaiseApi.ts";
+
+const MyPost = () => {
+
+  const [posts, setPosts] = useState([]);
+
+
+
+  useEffect(() => {
+    const getData = async () => {
+      const data = await getAll("posts");
+      if (data) {
+        setPosts(data);
+      }
+    }
+    getData();
+  }, []
+  )
+  // useEffect(() => {
+  //   const getPosts = async () => {
+  //     const resp = await fetch("https://jsonplaceholder.typicode.com/posts");
+  //     const res = await resp.json();
+  //     setPosts(res);
+  //   };
+  //   getPosts();
+  // }, []);
+
+  return (
+    <>
+      <Navbar />
+      <h1>All ....</h1>
+
+      <div>
+        <ol>
+          {posts.map((post) => (
+            <li key={post.id}>
+              <Link to={`/posts/${post.id}`}>{post.title}</Link>
+            </li>
+          ))}
+        </ol>
+      </div>
+
+    </>
+  )
 }
 
 interface Comment {

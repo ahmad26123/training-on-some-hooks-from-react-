@@ -57,6 +57,8 @@ import Posts from './pages/Posts/Posts.tsx'
 import Albums from './pages/Albums/Albums.tsx'
 import RongURL from './pages/RongURL/RongURL.tsx'
 import Users from './pages/Users/Users.tsx'
+import ProtectedRoute from './components/ProtectedRoute.tsx'
+import Photos from './pages/Photos/Photos.tsx'
 
 const route = createBrowserRouter([
   {
@@ -65,16 +67,20 @@ const route = createBrowserRouter([
   },
   {
     path: "/todos",
-    element: <Todos />
+    element:<ProtectedRoute> <Todos /> </ProtectedRoute>
   }, {
     path: "/mypost",
-    element: <MyPost />
+    element: <ProtectedRoute> <MyPost /> </ProtectedRoute>
   }, {
     path: "/posts",
-    element: <Posts />
+    element: <ProtectedRoute> <Posts /> </ProtectedRoute>
   }, {
     path: "/albums",
-    element: <Albums />
+    element: <ProtectedRoute> <Albums /> </ProtectedRoute>
+  },
+  {
+    path:"/photos",
+    element: <ProtectedRoute> <Photos /> </ProtectedRoute>
   },
   {
     path: "*",

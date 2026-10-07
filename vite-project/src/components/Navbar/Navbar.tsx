@@ -5,9 +5,9 @@ import "./Navbar.css";
 export default function Navbar() {
   return (
     <nav className="navbar">
-      <a href="/" className="logo">
+      <Link to="/" className="logo">
         Home
-      </a>
+      </Link>
 
       <ul className="nav-links">
         <li>
@@ -21,8 +21,14 @@ export default function Navbar() {
         </li>
         <li>
           <Link to="/albums">alboums</Link>
+          <Link to="/albums">alboums</Link>
         </li>
-        
+        <li>
+          <Link to="/photos">photos</Link>
+        </li>
+        <li>
+          <Link to="/todos">todos</Link>
+        </li>
       </ul>
     </nav>
   );

@@ -23,7 +23,7 @@
 
 
 // App.tsx
-import { createContext, useState, ReactNode } from "react";
+import { createContext, useState, ReactNode, useEffect } from "react";
 
 type ContextType = {
   id: number | null;
@@ -37,6 +37,7 @@ export const UserPostsContext = createContext<ContextType>({
 
 export const UserPostsProvider = ({ children }: { children: ReactNode }) => {
   const [id, setId] = useState<number | null>(null);
+
 
   return (
     <UserPostsContext.Provider value={{ id, setId }}>
