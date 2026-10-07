@@ -1,9 +1,11 @@
 import Navbar from "../../components/Navbar/Navbar"
+import { Button } from "@/components/ui/button"
 
 const Albums = () => {
     return (
         <>
-            <Navbar/>
+            <Navbar />
+            <Button>Button</Button>
 
         </>
     )

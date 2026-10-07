@@ -13,8 +13,9 @@ import RongURL from './pages/RongURL/RongURL.tsx'
 const route = createBrowserRouter([
   {
     path: "/",
-    element: <Users />
-  }, {
+    element: <App />
+  },
+  {
     path: "/todos",
     element: <Todos />
   }, {
@@ -35,7 +36,7 @@ const route = createBrowserRouter([
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <App />
+    {/* <App /> */}
     <RouterProvider router={route} />
   </StrictMode>,
 )
