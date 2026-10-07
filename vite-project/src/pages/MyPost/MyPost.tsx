@@ -6,12 +6,11 @@ import { UserPostsContext } from "@/App";
 
 const MyPost = () => {
     const { id } = useContext(UserPostsContext);
-    console.log("User ID from context:", id); // تحقق من قيمة id في وحدة التحكم
-
+    console.log("User ID from context:", id); 
     return (
         <div>
             <Navbar />
-            <h2> {id}</h2>
+            <h2>{id}</h2>
         </div>
     );
 };
