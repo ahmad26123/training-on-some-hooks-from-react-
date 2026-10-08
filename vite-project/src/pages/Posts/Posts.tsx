@@ -10,8 +10,7 @@ interface Post {
   title: string;
   body: string;
 
-  // import { }
-  // import { getAll } from "../../service/BaiseApi.ts";
+  
 }
 const MyPost = () => {
   const [posts, setPosts] = useState([]);
@@ -25,14 +24,7 @@ const MyPost = () => {
     };
     getData();
   }, []);
-  // useEffect(() => {
-  //   const getPosts = async () => {
-  //     const resp = await fetch("https://jsonplaceholder.typicode.com/posts");
-  //     const res = await resp.json();
-  //     setPosts(res);
-  //   };
-  //   getPosts();
-  // }, []);
+  
 
   return (
     <>
@@ -73,7 +65,7 @@ const Posts = () => {
     {},
   );
 
-  // 1. جلب المنشورات والتعليقات من السيرفر
+  //  جلب المنشورات والتعليقات 
   const loadData = async () => {
     setLoading(true);
     try {
@@ -82,7 +74,6 @@ const Posts = () => {
         getAll("comments"),
       ]);
 
-      // التأكد أن البيانات القادمة مصفوفة فعلية قبل عمل reverse
       if (Array.isArray(postsData)) {
         setPosts([...postsData].reverse());
       } else {
@@ -106,7 +97,7 @@ const Posts = () => {
     loadData();
   }, []);
 
-  // 2. إضافة تعليق جديد مرتبط بالـ activeUserId الحالي
+  //  إضافة تعليق جديد مرتبط بالـ activeUserId الحالي
   const handleAddComment = async (
     e: React.FormEvent,
     postId: number | string,
@@ -126,7 +117,6 @@ const Posts = () => {
       const createdComment = await post("comments", payload);
       if (createdComment) {
         setComments((prev) => [...prev, createdComment]);
-        // مسح مربع النص الخاص بالبوست المحدد
         setNewComments((prev) => ({ ...prev, [postId]: "" }));
       }
     } catch (error) {
@@ -134,7 +124,7 @@ const Posts = () => {
     }
   };
 
-  // 3. حذف تعليق (يُسمح فقط للتعليقات المملوكة للمستخدم الحالي)
+  //  حذف تعليق (يُسمح فقط للتعليقات المملوكة للمستخدم الحالي)
   const handleDeleteComment = async (commentId: number | string) => {
     if (!confirm("هل أنت متأكد من حذف هذا التعليق؟")) return;
 

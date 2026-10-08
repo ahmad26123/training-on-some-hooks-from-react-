@@ -41129,6 +41129,13 @@
       "url": "http://localhost:5173/images/pink aesthetic wallpaper_soft girl pastel background.jpg",
       "thumbnailUrl": "http://localhost:5173/images/pink aesthetic wallpaper_soft girl pastel background.jpg",
       "id": "W7GNhrrfrRA"
+    },
+    {
+      "albumId": "31",
+      "title": "ad",
+      "url": "http://localhost:5173/images/4b76666d-c0b6-4f9a-b3ce-4c2616cd5bf2.jpg",
+      "thumbnailUrl": "http://localhost:5173/images/4b76666d-c0b6-4f9a-b3ce-4c2616cd5bf2.jpg",
+      "id": "l4Sclgv1pFg"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

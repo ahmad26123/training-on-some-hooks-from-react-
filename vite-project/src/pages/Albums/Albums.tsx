@@ -66,7 +66,6 @@ const Albums = () => {
     }
   };
 
-  // حذف ألبوم
   const handleDeleteAlbum = async (albumId: number | string) => {
     const res = await deleted("albums", albumId);
     if (res !== undefined) {
@@ -75,7 +74,6 @@ const Albums = () => {
     }
   };
 
-  // تعديل اسم الألبوم
   const handleEditAlbum = async (album: Album) => {
     const updatedTitle = prompt("أدخل اسم الألبوم الجديد:", album.title);
     if (!updatedTitle || updatedTitle.trim() === album.title) return;
@@ -92,7 +90,6 @@ const Albums = () => {
     }
   };
 
-  // إضافة صورة جديدة داخل الألبوم
   const handleAddPhoto = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!photoTitle.trim() || !photoFile || !selectedAlbum) {
@@ -117,7 +114,6 @@ const Albums = () => {
     }
   };
 
-  // حذف صورة
   const handleDeletePhoto = async (photoId: number | string) => {
     const res = await deleted("photos", photoId);
     if (res !== undefined) {
@@ -146,7 +142,6 @@ const Albums = () => {
             </p>
           </div>
         ) : !selectedAlbum ? (
-          /* ================= عرض الألبومات ================= */
           <>
             {/* نموذج إضافة ألبوم جديد */}
             <div className="bg-stone-50 p-6 rounded-xl shadow-md border mb-8">
@@ -169,7 +164,6 @@ const Albums = () => {
               </form>
             </div>
 
-            {/* شبكة كروت الألبومات */}
             <div className="space-y-3">
               {albums.length === 0 && (
                 <div className="bg-stone-50 p-8 text-center text-gray-500 rounded-xl border">
@@ -217,7 +211,7 @@ const Albums = () => {
             </div>
           </>
         ) : (
-          /* ================= عرض صور الألبوم المختار ================= */
+          /*  عرض صور الألبوم  */
           <>
             <button
               onClick={() => setSelectedAlbum(null)}

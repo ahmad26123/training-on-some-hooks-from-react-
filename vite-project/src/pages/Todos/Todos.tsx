@@ -17,7 +17,6 @@ const Todos = () => {
   const [newTitle, setNewTitle] = useState("");
   const navigate = useNavigate();
 
-  // 1. Read
   useEffect(() => {
     if (!id) {
       navigate("/");
@@ -30,7 +29,6 @@ const Todos = () => {
     });
   }, [id, navigate]);
 
-  // 2. Create
   const handleAddTodo = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!newTitle.trim() || !id) return;
@@ -48,7 +46,6 @@ const Todos = () => {
     }
   };
 
-  // 3. Update (Toggle completed)
   const handleToggleComplete = async (todo: Todo) => {
     const updatedData = { ...todo, completed: !todo.completed };
     const res = await update("todos", todo.id, updatedData);
@@ -57,7 +54,6 @@ const Todos = () => {
     }
   };
 
-  // 4. Delete
   const handleDelete = async (todoId: number) => {
     const res = await deleted("todos", todoId);
     if (res !== undefined) {

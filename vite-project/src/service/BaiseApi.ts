@@ -25,7 +25,7 @@ export const getAll = async (name) => {
     console.error("Error", error.message);
   }
 };
-//=====================================================================
+
 export const post = async (name, data) => {
   try {
     const response = await fetch(`http://localhost:3000/${name}`, {
@@ -46,7 +46,7 @@ export const post = async (name, data) => {
     console.error("ronnng : ", error.message);
   }
 };
-//=====================================================================
+
 export const getById = async (name, id) => {
   try {
     const response = await fetch(`http://localhost:3000/${name}/${id}`);
@@ -58,7 +58,7 @@ export const getById = async (name, id) => {
     console.error(erorr);
   }
 };
-//=====================================================================
+
 export const update = async (name, id, data) => {
   try {
     const response = await fetch(`http://localhost:3000/${name}/${id}`, {
@@ -79,7 +79,7 @@ export const update = async (name, id, data) => {
     console.error("ronnng : ", error.message);
   }
 };
-//=====================================================================
+
 export const deleted = async (name, id) => {
   try {
     const response = await fetch(`http://localhost:3000/${name}/${id}`, {

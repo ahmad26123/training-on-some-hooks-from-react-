@@ -39,7 +39,7 @@ const MyPost = () => {
   }>({});
   const [commentsLoading, setCommentsLoading] = useState<boolean>(false);
 
-  // 1. القراءة (READ POSTS)
+  
   const loadPosts = async () => {
     if (!id) return;
     setLoading(true);
@@ -87,7 +87,7 @@ const MyPost = () => {
     }
   };
 
-  // 2. الإنشاء (CREATE POST)
+  // انشاء بوست
   const handleCreatePost = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!newTitle.trim() || !newBody.trim() || !id) return;
@@ -112,7 +112,6 @@ const MyPost = () => {
     }
   };
 
-  // 3. التحديث (UPDATE POST)
   const handleUpdatePost = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!editingPost) return;
@@ -128,7 +127,7 @@ const MyPost = () => {
     }
   };
 
-  // 4. الحذف المترابط (DELETE POST + CASCADE COMMENTS)
+  //  الحذف المترابط (DELETE POST + CASCADE COMMENTS)
   const handleDeletePost = async (postId: number | string) => {
     if (!confirm("هل أنت متأكد من حذف هذا البوست وكل التعليقات المرتبطة به؟"))
       return;
@@ -136,11 +135,11 @@ const MyPost = () => {
     try {
       console.log("جارٍ حذف البوست برقم ID:", postId);
 
-      // 1. حذف البوست الأساسي من السيرفر أولاً
+      //  حذف البوست الأساسي 
       const deleteRes = await deleted("posts", postId);
       console.log("نتيجة حذف البوست من السيرفر:", deleteRes);
 
-      // 2. محاولة حذف التعليقات التابعة له (إن وجدت) بدون إيقاف كود حذف البوست
+      //  محاولة حذف التعليقات التابعة له (إن وجدت) 
       try {
         const comments: Comment[] = await getAll(`comments?postId=${postId}`);
         if (Array.isArray(comments) && comments.length > 0) {
@@ -150,7 +149,7 @@ const MyPost = () => {
         console.warn("تنبيه عند حذف التعليقات:", commentErr);
       }
 
-      // 3. تحديث واجهة MyPost فوراً وحذف العنصر من الشاشة محلياً
+      //  تحديث واجهة MyPost  وحذف العنصر من الشاشة محلياً
       setPosts((prevPosts) =>
         prevPosts.filter((p) => String(p.id) !== String(postId)),
       );
@@ -159,7 +158,7 @@ const MyPost = () => {
     }
   };
 
-  // 5. إضافة تعليق جديد (CREATE COMMENT)
+  //  إضافة تعليق جديد 
   const handleAddComment = async (
     e: React.FormEvent,
     postId: number | string,
@@ -188,7 +187,7 @@ const MyPost = () => {
     }
   };
 
-  // 6. حذف أي تعليق على المنشور (DELETE ANY COMMENT)
+  //  حذف أي تعليق على المنشور 
   const handleDeleteComment = async (
     commentId: number | string,
     postId: number | string,
@@ -271,7 +270,7 @@ const MyPost = () => {
               </p>
             )}
 
-            {/* عرض قائمة المنشورات */}
+            {/* عرض المنشورات */}
             <div className="space-y-4">
               {posts.map((post) => {
                 const isCommentsOpen = openCommentsPostId === post.id;

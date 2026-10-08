@@ -18,7 +18,6 @@ const Photos = () => {
   const [imageType, setImageType] = useState<"picsum" | "local">("picsum");
   const [localImageName, setLocalImageName] = useState("");
 
-  // 1. جلب الصور (يمكنك جلب صور الألبوم المحدد أو جلب الكل)
   useEffect(() => {
     if (!id) return;
 
@@ -28,7 +27,7 @@ const Photos = () => {
     });
   }, [id]);
 
-  // 2. إضافة صورة جديدة
+  //  إضافة صورة جديدة
   const handleAddPhoto = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!title.trim() || !id) return;
@@ -37,18 +36,15 @@ const Photos = () => {
     let thumbUrl = "";
 
     if (imageType === "picsum") {
-      // توليد رابط Picsum عشوائي مثل بيانات الـ JSON الأصلية
       const randomSeed = Math.floor(Math.random() * 1000) + 1;
       photoUrl = `https://picsum.photos/seed/${randomSeed}/600`;
       thumbUrl = `https://picsum.photos/seed/${randomSeed}/150`;
     } else {
-      // استخدام الرابط المحلي من مجلد images
       const imageName = localImageName.trim() || "02.jpg";
       photoUrl = `http://localhost:5173/images/${imageName}`;
       thumbUrl = `http://localhost:5173/images/${imageName}`;
     }
 
-    // بناء الكائن تماماً بنفس هيكل الـ JSON
     const newPhotoData = {
       albumId: id,
       title: title,
@@ -64,7 +60,7 @@ const Photos = () => {
     }
   };
 
-  // 3. حذف صورة
+  //  حذف صورة
   const handleDeletePhoto = async (photoId: number) => {
     const res = await deleted("photos", photoId);
     if (res !== undefined) {
