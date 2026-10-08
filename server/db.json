@@ -831,88 +831,17 @@
       "id": "100",
       "title": "at nam consequatur ea labore ea harum",
       "body": "cupiditate quo est a modi nesciunt soluta\nipsa voluptas error itaque dicta in\nautem qui minus magnam et distinctio eum\naccusamus ratione error aut"
-<<<<<<< HEAD
-    },
-    {
-      "userId": "1",
-      "title": "TEST",
-      "body": ">>>>>>>>>>>>>>>",
-      "id": "-lPt3vpOWDw"
-    },
-    {
-      "userId": "1",
-      "title": "سب",
-      "body": "شير",
-      "id": "yrYDNHrKAiU"
-    },
-    {
-      "userId": "2",
-      "title": "سبلا",
-      "body": "سير  ",
-      "id": "Owr1jlyO0H8"
-    },
-    {
-      "userId": "1",
-      "title": "تتتت",
-      "body": "ثيصشؤر",
-      "id": "rCkSjr9TpU8"
-    },
-    {
-      "userId": "1",
-      "title": "يسصقسش",
-      "body": "شسثيرير",
-      "id": "lqjnNUAuqi0"
-    },
-    {
-      "userId": "1",
-      "title": "hgfk",
-      "body": "adxxxxxxxxxxxxxxxxxxxxxc",
-      "id": "NFUFfwcovAI"
-    },
-    {
-      "userId": "1",
-      "title": "شس",
-      "body": "شسبب",
-      "id": "iYQTzzooLDQ"
-    },
-    {
-      "userId": "1",
-      "title": "البنلا يؤر",
-      "body": "سؤتر لانتوير ب",
-      "id": "tcYs1kvkEE0"
-    },
-    {
-      "userId": "1",
-      "title": "صبري",
-      "body": "صبر ثصل",
-      "id": "EkA24Xiv_W8"
     },
     {
       "userId": 1,
-      "title": "شيربلا",
-      "body": "سيلابرئلا",
-      "id": "nfYdPwW-T4k"
-    },
-    {
-      "userId": 1,
-      "title": "شيثر",
-      "body": "سبيلاسب",
-      "id": "3vO0OXLBjzg"
-    },
-    {
-      "userId": 1,
-      "title": "تغبغعفتن",
-      "body": "هلانع\n",
-      "id": "7-xpMnqilPo"
-=======
->>>>>>> 6d7b0fd (albums,photos,todos)
+      "title": "morning",
+      "body": "gooooooood Morning 😍😍😍",
+      "id": "wAVpfXFsXA0"
     }
   ],
   "comments": [
     {
       "postId": 1,
-<<<<<<< HEAD
-=======
       "id": "1",
       "name": "id labore ex et quam laborum",
       "email": "Eliseo@gardner.biz",
@@ -927,7 +856,6 @@
     },
     {
       "postId": 1,
->>>>>>> 6d7b0fd (albums,photos,todos)
       "id": "3",
       "name": "odio adipisci rerum aut animi",
       "email": "Nikita@garfield.biz",
@@ -4411,15 +4339,36 @@
       "name": "ex eaque eum natus",
       "email": "Emma@joanny.ca",
       "body": "perspiciatis quis doloremque\nveniam nisi eos velit sed\nid totam inventore voluptatem laborum et eveniet\naut aut aut maxime quia temporibus ut omnis"
-<<<<<<< HEAD
     },
     {
       "postId": "1",
       "userId": 1,
       "body": "شرشي",
       "id": "a6VgoiJzM58"
-=======
->>>>>>> 6d7b0fd (albums,photos,todos)
+    },
+    {
+      "postId": "EkA24Xiv_W8",
+      "userId": 4,
+      "body": "ewtw",
+      "id": "lyNbGXBH8_I"
+    },
+    {
+      "postId": null,
+      "userId": 1,
+      "body": "afdsf",
+      "id": "PnmWrWZd9Y4"
+    },
+    {
+      "postId": null,
+      "userId": 4,
+      "body": "sefegg",
+      "id": "OLTnYCKkEa4"
+    },
+    {
+      "postId": "wAVpfXFsXA0",
+      "userId": 9,
+      "body": "morning my frined",
+      "id": "a0dTaalcq5M"
     }
   ],
   "albums": [
@@ -4922,8 +4871,6 @@
       "userId": 10,
       "id": "100",
       "title": "enim repellat iste"
-<<<<<<< HEAD
-=======
     },
     {
       "userId": "4",
@@ -4942,19 +4889,13 @@
     },
     {
       "userId": 1,
-      "title": "ممم",
+      "title": "r",
       "id": "gG8VeZvOdRY"
-    },
-    {
-      "userId": 1,
-      "title": "y",
-      "id": "lOAABWh5oZo"
     },
     {
       "userId": 1,
       "title": "صور العيد",
       "id": "8ZdzxtHtfGc"
->>>>>>> 6d7b0fd (albums,photos,todos)
     }
   ],
   "todos": [
@@ -4998,17 +4939,13 @@
       "userId": 1,
       "id": "7",
       "title": "illo expedita consequatur quia in",
-      "completed": false
+      "completed": true
     },
     {
       "userId": 1,
       "id": "8",
       "title": "quo adipisci enim quam ut ab",
-<<<<<<< HEAD
       "completed": true
-=======
-      "completed": false
->>>>>>> 6d7b0fd (albums,photos,todos)
     },
     {
       "userId": 1,
@@ -5026,7 +4963,7 @@
       "userId": 1,
       "id": "11",
       "title": "vero rerum temporibus dolor",
-      "completed": true
+      "completed": false
     },
     {
       "userId": 1,
@@ -5806,12 +5743,6 @@
       "userId": 8,
       "id": "141",
       "title": "explicabo consectetur debitis voluptates quas quae culpa rerum non",
-      "completed": true
-    },
-    {
-      "userId": 8,
-      "id": "142",
-      "title": "maiores accusantium architecto necessitatibus reiciendis ea aut",
       "completed": true
     },
     {
@@ -41186,7 +41117,7 @@
       "id": "wA6UB59U2lk"
     },
     {
-      "albumId": "lOAABWh5oZo",
+      "albumId": null,
       "title": "y",
       "url": "http://localhost:5173/images/01.png",
       "thumbnailUrl": "http://localhost:5173/images/01.png",

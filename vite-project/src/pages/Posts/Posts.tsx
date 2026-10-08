@@ -2,24 +2,19 @@ import { useContext, useEffect, useState } from "react";
 import Navbar from "@/components/Navbar/Navbar";
 import { UserPostsContext } from "@/App";
 import { getAll, post, deleted } from "@/service/BaiseApi";
+import { Link } from "react-router";
 
 interface Post {
   id: number | string;
   userId: number | string;
   title: string;
   body: string;
-import { useEffect, useState } from "react"
-import Navbar from "../../components/Navbar/Navbar"
-import { getAll } from "../../service/BaiseApi";
-import { Link } from "react-router";
-// import { }
-// import { getAll } from "../../service/BaiseApi.ts";
 
+  // import { }
+  // import { getAll } from "../../service/BaiseApi.ts";
+}
 const MyPost = () => {
-
   const [posts, setPosts] = useState([]);
-
-
 
   useEffect(() => {
     const getData = async () => {
@@ -27,10 +22,9 @@ const MyPost = () => {
       if (data) {
         setPosts(data);
       }
-    }
+    };
     getData();
-  }, []
-  )
+  }, []);
   // useEffect(() => {
   //   const getPosts = async () => {
   //     const resp = await fetch("https://jsonplaceholder.typicode.com/posts");
@@ -54,10 +48,9 @@ const MyPost = () => {
           ))}
         </ol>
       </div>
-
     </>
-  )
-}
+  );
+};
 
 interface Comment {
   id: number | string;
@@ -76,7 +69,9 @@ const Posts = () => {
   const [loading, setLoading] = useState<boolean>(false);
 
   // حالة نص التعليق الجديد المربوطة بمعرف البوست
-  const [newComments, setNewComments] = useState<{ [postId: string]: string }>({});
+  const [newComments, setNewComments] = useState<{ [postId: string]: string }>(
+    {},
+  );
 
   // 1. جلب المنشورات والتعليقات من السيرفر
   const loadData = async () => {
@@ -87,8 +82,18 @@ const Posts = () => {
         getAll("comments"),
       ]);
 
-      if (postsData) setPosts(postsData);
-      if (commentsData) setComments(commentsData);
+      // التأكد أن البيانات القادمة مصفوفة فعلية قبل عمل reverse
+      if (Array.isArray(postsData)) {
+        setPosts([...postsData].reverse());
+      } else {
+        setPosts([]);
+      }
+
+      if (Array.isArray(commentsData)) {
+        setComments(commentsData);
+      } else {
+        setComments([]);
+      }
     } catch (error) {
       console.error("Error loading posts and comments:", error);
     } finally {
@@ -97,11 +102,15 @@ const Posts = () => {
   };
 
   useEffect(() => {
+    console.log("Fetching fresh posts in Posts.tsx...");
     loadData();
   }, []);
 
   // 2. إضافة تعليق جديد مرتبط بالـ activeUserId الحالي
-  const handleAddComment = async (e: React.FormEvent, postId: number | string) => {
+  const handleAddComment = async (
+    e: React.FormEvent,
+    postId: number | string,
+  ) => {
     e.preventDefault();
     const commentBody = newComments[postId];
 
@@ -131,7 +140,9 @@ const Posts = () => {
 
     try {
       await deleted("comments", commentId);
-      setComments((prev) => prev.filter((c) => String(c.id) !== String(commentId)));
+      setComments((prev) =>
+        prev.filter((c) => String(c.id) !== String(commentId)),
+      );
     } catch (error) {
       console.error("Error deleting comment:", error);
     }
@@ -161,13 +172,15 @@ const Posts = () => {
         </div>
 
         {loading ? (
-          <p className="text-center text-gray-500 py-8">جاري تحميل المنشورات والتعليقات...</p>
+          <p className="text-center text-gray-500 py-8">
+            جاري تحميل المنشورات والتعليقات...
+          </p>
         ) : (
           <div className="space-y-6">
             {posts.map((postItem) => {
               // تصفية التعليقات الخاصة بالبوست الحالي
               const postComments = comments.filter(
-                (c) => String(c.postId) === String(postItem.id)
+                (c) => String(c.postId) === String(postItem.id),
               );
 
               return (
@@ -177,12 +190,16 @@ const Posts = () => {
                 >
                   {/* تفاصيل البوست */}
                   <div className="flex justify-between items-start mb-2">
-                    <h2 className="text-xl font-bold text-gray-800">{postItem.title}</h2>
+                    <h2 className="text-xl font-bold text-gray-800">
+                      {postItem.title}
+                    </h2>
                     <span className="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded">
                       User #{postItem.userId}
                     </span>
                   </div>
-                  <p className="text-gray-600 mb-6 whitespace-pre-line">{postItem.body}</p>
+                  <p className="text-gray-600 mb-6 whitespace-pre-line">
+                    {postItem.body}
+                  </p>
 
                   {/* قسم التعليقات */}
                   <div className="border-t pt-4 mt-4 bg-gray-50 -mx-6 -mb-6 p-6 rounded-b-xl">
@@ -193,7 +210,9 @@ const Posts = () => {
                     {/* قائمة التعليقات */}
                     <div className="space-y-3 mb-4">
                       {postComments.length === 0 ? (
-                        <p className="text-xs text-gray-400 italic">لا توجد تعليقات بعد.</p>
+                        <p className="text-xs text-gray-400 italic">
+                          لا توجد تعليقات بعد.
+                        </p>
                       ) : (
                         postComments.map((comment) => {
                           const isOwner =
@@ -215,7 +234,9 @@ const Posts = () => {
                               {/* زر الحذف يظهر فقط إذا كان التعليق يخص اليوزر المحدد في الـ Context */}
                               {isOwner && (
                                 <button
-                                  onClick={() => handleDeleteComment(comment.id)}
+                                  onClick={() =>
+                                    handleDeleteComment(comment.id)
+                                  }
                                   className="text-xs text-red-500 hover:text-red-700 font-medium mr-2"
                                 >
                                   حذف
@@ -238,21 +259,25 @@ const Posts = () => {
                           placeholder="اكتب تعليقاً..."
                           value={newComments[postItem.id] || ""}
                           onChange={(e) =>
-                            handleCommentInputChange(postItem.id, e.target.value)
+                            handleCommentInputChange(
+                              postItem.id,
+                              e.target.value,
+                            )
                           }
                           className="flex-1 px-3 py-1.5 text-sm border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
                           required
                         />
                         <button
                           type="submit"
-                          className="bg-blue-600 hover:bg-blue-700 text-white text-sm px-4 py-1.5 rounded-lg transition-colors font-medium"
+                          className="bg-emerald-800 hover:bg-emerald-900 text-white text-sm px-4 py-1.5 rounded-lg transition-colors font-medium"
                         >
                           إرسال
                         </button>
                       </form>
                     ) : (
                       <p className="text-xs text-amber-600">
-                        * يرجى اختيار مستخدم من صفحة Users لتمكّنك من كتابة تعليق.
+                        * يرجى اختيار مستخدم من صفحة Users لتمكّنك من كتابة
+                        تعليق.
                       </p>
                     )}
                   </div>

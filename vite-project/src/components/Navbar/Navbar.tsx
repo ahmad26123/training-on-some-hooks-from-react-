@@ -17,14 +17,7 @@ export default function Navbar() {
           <Link to="/posts">posts</Link>
         </li>
         <li>
-          <Link to="/todos">todos</Link>
-        </li>
-        <li>
           <Link to="/albums">alboums</Link>
-          <Link to="/albums">alboums</Link>
-        </li>
-        <li>
-          <Link to="/photos">photos</Link>
         </li>
         <li>
           <Link to="/todos">todos</Link>
